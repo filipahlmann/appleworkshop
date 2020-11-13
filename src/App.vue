@@ -1,32 +1,57 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+
+  <v-app id="inspire">
+        <navigation />
+
+
+    <v-main class="grey lighten-3">
+   <router-view></router-view>
+
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
+import Navigation from './components/Navigation'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  export default {
+components: {
+      Navigation
+    },
+    name: 'App',
+    data: () => ({
+      
+    }),
   }
+</script>
+
+<style lang="scss">
+
+
+
+.col:last-child h1{
+    text-align: left;
 }
+
+#info {
+    background-color: white;
+}
+
+.info_box .flex h1 {
+    @include infobox_mixin(0px, map-get($colorz, secondary), 10px, 5px, map-get($colorz, secondary));
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+
+  }
+
+  .layout:first-child {
+    height: 40vh;
+  }
+
+    .layout:last-child {
+    height: 40vh;
+  }
 </style>
